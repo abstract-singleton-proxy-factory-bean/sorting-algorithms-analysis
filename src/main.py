@@ -1,14 +1,18 @@
 from json import dumps
 from random import randint
 from time import perf_counter
-from algorithms import bubble_sort, insertion_sort, radix_sort, quick_sort, merge_sort
+from algorithms import (
+    bubble_sort,
+    insertion_sort,
+    radix_sort,
+    quick_sort,
+    merge_sort,
+)
+
 
 def get_times(iteration_range: int, algorithms: list):
     source = [randint(0, 1_000_000) for _ in range(iteration_range)]
-    times = {
-        "list_size": iteration_range,
-        "times": {}
-    }
+    times = {"list_size": iteration_range, "times": {}}
 
     for algorithm in algorithms:
         start = perf_counter()
@@ -17,6 +21,7 @@ def get_times(iteration_range: int, algorithms: list):
         times["times"][algorithm.__name__] = end - start
 
     return times
+
 
 times = []
 

@@ -1,15 +1,17 @@
 import matplotlib.pyplot as plt
 from json import loads
 
+
 def map(callback, source):
     mapped = []
 
     for item in source:
         mapped.append(callback(item))
-    
+
     return mapped
 
-with open("benchmark.json", "r") as file:
+
+with open("results.json", "r") as file:
     data = loads("".join(file.readlines()))
 
     for set in data:
